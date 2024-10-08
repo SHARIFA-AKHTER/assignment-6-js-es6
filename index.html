@@ -46,7 +46,111 @@
     </div>
      <!-- navbar section end-->
 
+    <main>
+      <!-- bring Family -->
+      <section  class="bg-cover bg-center ">
+        <div  class=" flex flex-col items-center justify-center h-full p-10">
+            <div class="text-center space-y-4 px-4 md:px-8">
+                <h4 class="flex justify-center items-center text-xl ">Bringing Families Together ❤️‍🔥 </h4>
+                <h1 class="flex justify-center items-center
+                 md:text-2xl text-4xl  gap-2 text-[#131313] font-bold ">Your Path to Adoption Starts Here</h1>
+                <p class="text-xs md:xl gap-2">Barking is a natural behavior for dogs, serving as a means of 
+                    communication and a way to express their needs...
+                </p>
+            </div>
+            <button id="view-more-button" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg
+           text-white bg-[#0E7A81] m-4">View More</button>
+            <div>
+                <img class="" src="images/pet.webp" alt="">
+               
+            </div>
+        </div>
+    </section>
 
+    <section id="adopt-section">  
+      <!-- Adopt your best -->
+
+    <div id="categoriesSection" class="flex flex-col flex-wrap gap-4 items-center justify-center p-10">
+      <div class="text-center space-y-4 px-4 md:px-8">
+        <h2 class="flex justify-center items-center md:text-xl text-2xl gap-2 text-[#131313] font-bold">
+          Adopt Your Best Friend
+        </h2>
+        <p class="text-xs md:text-xl gap-2">
+          Barking is a natural behavior for dogs, serving as a means 
+          of communication and a way to express their needs...
+        </p>
+      </div>
+      </div>
+        <!-- Categories Buttons -->
+        <div  class="container mx-auto">  
+          <div id="categoriesContainer" class=" flex flex-col md:flex-row rounded-lg
+          md:space-x-4 space-y-4 md:space-y-0 justify-center
+        items-center p-6 gap-4"> 
+                     
+      </div>
+   
+      </div>
+     
+  </section>
+
+  <section>
+      <!-- best Dell -->
+    <div class="flex flex-col md:flex-row justify-between items-center
+     bg-white p-6 shadow-md rounded-md mb-6">
+
+      <div class="text-left">
+          <h2 class="flex justify-start items-start ml-6 
+          font-bold m-2 p-4 text-lg md:text-xl">Best Deal For You</h2>
+      </div>
+      
+
+      <div class="flex justify-end items-end mt-4 md:mt-0">
+          <button class="btn bg-[#0E7A81] text-white w-full 
+          md:w-[150px] h-10 md:h-full shadow-md font-bold">Sort by Price</button>
+      </div>
+  </div>
+
+  <div class="container mx-auto py-8">
+    
+  <img id="error-image" class="hidden mx-auto mb-4 w-96" src="images/error.webp" alt="No birds available">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div id="pets-container" class="w-full">
+          
+        </div>
+
+        <div id="pet-modal" class="fixed inset-0 bg-black bg-opacity-50 
+        items-center justify-center hidden">
+         <div class="bg-white rounded-lg p-6 max-w-lg w-full">
+             <button id="close-modal" class="absolute top-2 right-2 text-gray-600">✖</button>
+             <h2 id="modal-pet-name" class="text-2xl font-bold mb-4"></h2>
+             <img id="modal-pet-image" class="w-full h-64 object-cover mb-4" alt="">
+             <p id="modal-breed"><i class="fa-brands fa-elementor"></i> Breed: </p>
+             <p id="modal-date-of-birth"><i class="fa-solid fa-calendar-days"></i> Date of Birth: </p>
+             <p id="modal-gender"><i class="fa-solid fa-venus"></i> Gender: </p>
+             <p id="modal-price"><i class="fa-solid fa-dollar-sign"></i> Price: </p>
+
+             <button id="last-close-modal" class="mt-4 py-2 px-4 bg-[#0E7A81]
+              text-white rounded">Close</button>
+         </div>
+          
+     </div>       
+
+        <!--  Liked pet cards  -->
+        <div id="liked-pets-container" class="w-full hidden bg-gray-100 p-4 rounded-lg">
+            <h2 class="text-xl font-bold mb-4">Liked Pets</h2>
+            <div id="liked-images-container" class="grid grid-cols-1 gap-4">
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+  </section>
+
+    </main>
          
       </footer>
     <script src="script.js"></script>
