@@ -24,203 +24,29 @@
       </script>
 </head> 
 <body class="Lato">
-    <!-- navbar -->
-    <div class="navbar bg-base-100">
-        <div class="navbar-start gap-4">
-            <img class="hidden md:flex lg:justify-start" src="images/logo.webp" alt="">
-          <a class="text-2xl">Peddy</a>
-        </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
-            <li><a>Home</a></li>
-            <li><a>Shop</a></li>
-            <li><a>Contact</a></li>
-          </ul>
-        </div>
-        <div class="navbar-end">
-          <a class="btn  btn-ghost btn-circle bg-[#FFFFFF] opacity-80 shadow-md">
-            <i class="fa-regular fa-user text-xl "></i>
-          </a>    
-        </div>
+   
+     <!-- navbar section start-->
+     <div class="navbar bg-base-100">
+      <div class="navbar-start gap-4">
+          <img class="hidden md:flex lg:justify-start" src="images/logo.webp" alt="">
+        <a class="text-2xl">Peddy</a>
       </div>
-<!-- Banner section -->
-
-      <!-- bring Family -->
-      <main>
-        <section  class="bg-cover bg-center ">
-            <div  class=" flex flex-col items-center justify-center h-full p-10">
-                <div class="text-center space-y-4 px-4 md:px-8">
-                    <h4 class="flex justify-center items-center text-xl ">Bringing Families Together ❤️‍🔥 </h4>
-                    <h1 class="flex justify-center items-center
-                     md:text-2xl text-4xl  gap-2 text-[#131313] font-bold ">Your Path to Adoption Starts Here</h1>
-                    <p class="text-xs md:xl gap-2">Barking is a natural behavior for dogs, serving as a means of 
-                        communication and a way to express their needs...
-                    </p>
-                </div>
-                <button id="view-more-button" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg
-               text-white bg-[#0E7A81] m-4">View More</button>
-                <div>
-                    <img class="" src="images/pet.webp" alt="">
-                   
-                </div>
-            </div>
-        </section>
-
-        <section id="adopt-section">  
-            <!-- Adopt your best -->
-     
-          <div id="categoriesSection" class="flex flex-col flex-wrap gap-4 items-center justify-center p-10">
-            <div class="text-center space-y-4 px-4 md:px-8">
-              <h2 class="flex justify-center items-center md:text-xl text-2xl gap-2 text-[#131313] font-bold">
-                Adopt Your Best Friend
-              </h2>
-              <p class="text-xs md:text-xl gap-2">
-                Barking is a natural behavior for dogs, serving as a means 
-                of communication and a way to express their needs...
-              </p>
-            </div>
-              <!-- Categories Buttons -->
-              <!-- <div id="categoriesContainer" class="flex flex-col md:flex-row rounded-lg
-              md:space-x-4 space-y-4 md:space-y-0 justify-center items-center p-6 gap-4">
-              
-              </div> -->
-              <div  class="container mx-auto">  
-                <div id="categoriesContainer" class="flex flex-col md:flex-row rounded-lg
-                md:space-x-4 space-y-4 md:space-y-0 justify-center items-center p-6 gap-4">
-              
-            </div>
-      
-             
-            </div>
-        </section>
-       
-        <!-- best Dell -->
-        <section>
-          <div class="flex flex-col md:flex-row justify-between items-center
-           bg-white p-6 shadow-md rounded-md mb-6">
-            <!-- Title on the left -->
-            <div class="text-left">
-                <h2 class="flex justify-start items-start ml-6 
-                font-bold m-2 p-4 text-lg md:text-xl">Best Deal For You</h2>
-            </div>
-            
-            <!-- Sort button on the right -->
-            <div class="flex justify-end items-end mt-4 md:mt-0">
-                <button class="btn bg-[#0E7A81] text-white w-full md:w-[150px] h-10 md:h-full shadow-md font-bold">Sort by Price</button>
-            </div>
-        </div>
-
-         <div class="container  mx-auto py-8">
-          <div id="pets-container" class="grid grid-cols-1 md:grid-cols-3  gap-6">         
-          </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a>Home</a></li>
+          <li><a>Shop</a></li>
+          <li><a>Contact</a></li>
+        </ul>
       </div>
-      
-      
-        </section>
-    </main>
-         <!-- Modal for Pet Details -->
-         <div id="petModal" class="fixed inset-0 bg-gray-800 bg-opacity-75
-          justify-center items-center flex ">
-          <div class="max-w-lg w-full bg-white shadow-md rounded-lg overflow-hidden">
-              <img id="pet-image" class="w-full h-64 object-cover" 
-              alt="Pet Image">
-              <div class="p-6">
-                  <h1 class="text-2xl font-bold text-gray-800 mb-2" id="pet-name"></h1>
-                  <p class="text-gray-600"><strong>Breed:</strong> <span id="pet-breed"></span></p>
-                  <p class="text-gray-600"><strong>Category:</strong> <span id="pet-category"></span></p>
-                  <p class="text-gray-600"><strong>Date of Birth:</strong> <span id="pet-dob"></span></p>
-                  <p class="text-gray-600"><strong>Price:</strong> <span id="pet-price"></span></p>
-                  <p class="text-gray-600"><strong>Gender:</strong> <span id="pet-gender"></span></p>
-                  <p class="text-gray-600"><strong>Vaccinated:</strong> <span id="pet-vaccinated"></span></p>
-                  <p class="mt-4 text-gray-800 leading-relaxed" id="pet-details"></p>
-                  
-                  <!-- Close Button -->
-                  <button id="closeModal" class="mt-6 w-full bg-red-500 text-white
-                   py-2 rounded-md">Close</button>
-              </div>
-          </div>
+      <div class="navbar-end">
+        <a class="btn  btn-ghost btn-circle bg-[#FFFFFF] opacity-80 shadow-md">
+          <i class="fa-regular fa-user text-xl "></i>
+        </a>    
       </div>
-  </div>
-      <!-- footer section -->
-        <footer class="footer bg-[#131313] py-6  
-      flex-row-reverse h- sm:h-screen lg:h-screen mx-auto ">
-     
-            <nav class="flex flex-col  items-center md:items-start
-             gap-2 text-[#FFFFFF] ml-10 md:ml-10 lg:ml-10">
-                <h6 class="footer-title font-semibold  flex flex-wrap gap-2">
-                  <img src="images/logo.webp" alt="">
-                  Peddy</h6>
-                <a class="link link-hover">
-                    Location: av.Washington 165, NY CA 54003
-                </a>
-                <a class="link link-hover">
-                    Phone: +31 85 964 47 25
-                </a>
-                <a class="link link-hover">
-                    Email: info@yourdomain.com
-                </a>
-                <a class="link link-hover">
-                    Openings hours: 9.00 AM - 5.00 PM
-                </a>
-
-     <div class="grid grid-flow-col gap-4">
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          class="fill-current">
-          <path
-            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-        </svg>
-      </a>
-
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          class="fill-current">
-          <path
-            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-        </svg>
-      </a>
-
-      <a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          class="fill-current">
-          <path
-            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-        </svg>
-      </a>
-
     </div>
-              </nav>
-              <nav class="flex flex-col items-center md:items-start
-              gap-2 text-[#FFFFFF] ml-28 md:ml-10 lg:ml-10 lg:flex md:hidden">
-                <h6 class="footer-title font-semibold">Useful Links</h6>
-                <a class="link link-hover"> Home</a>
-                <a class="link link-hover"> Animals</a>
-                <a class="link link-hover">Foundation
-                </a>
-                <a class="link link-hover">Contact</a>
-              </nav>
-              <nav class="flex flex-col items-center md:items-start
-         gap-2 text-[#FFFFFF] ml-24 md:ml-10 lg:ml-10 ">
-                <h6 class="footer-title font-semibold">Drop a Message</h6>
-                <label class="label">
-                    <span class="btn label-text 
-                    font-bold ">Enter your email </span>
-                  </label>
-                  <button class="btn  bg-[#0E7A81]  
-                  w-[150px] h-full shadow-md font-bold">Subscribe</button>
-              </nav>
+     <!-- navbar section end-->
+
+
          
       </footer>
     <script src="script.js"></script>
