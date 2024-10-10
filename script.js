@@ -3,7 +3,7 @@ document.getElementById('view-more-button').addEventListener('click',function(){
     document.getElementById('adopt-section').scrollIntoView({behavior: 'smooth'});
 })
 
-// section categories
+// item categories
 const apiUrl = 'https://openapi.programming-hero.com/api/peddy/categories';
 
 function showLoader() {
@@ -55,6 +55,7 @@ function fetchCategories() {
             });
     }, 2000); 
 }
+
 // Call fetchCategories 
 fetchCategories();
 // selected category
@@ -70,15 +71,15 @@ async function fetchPetsByCategory(category) {
    
     if (data.data && data.data.length > 0) {
 
-        if (category === 'birds') {
-            birdImage.classList.remove('hidden'); 
-        }
+      
         const petsGrid = document.createElement('div');
-        petsGrid.classList.add('grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-4');
+        petsGrid.classList.add('grid', 'grid-cols-1', 'md:grid-cols-2', 
+            'lg:grid-cols-3', 'gap-4');
 
         data.data.forEach(pet => {
             const petCard = document.createElement('div');
-            petCard.classList.add('bg-white', 'shadow-md', 'p-4', 'rounded-lg', 'w-full', 'h-auto', 'gap-4');
+            petCard.classList.add('bg-white', 'shadow-md',
+                 'p-4', 'rounded-lg', 'w-full', 'h-auto', 'gap-4');
             petCard.innerHTML = `
                 <div>
                     <img src="${pet.image}" alt="${pet.name}" class="w-full h-48 object-cover shadow-md mb-4">
@@ -102,7 +103,8 @@ async function fetchPetsByCategory(category) {
         petsContainer.appendChild(petsGrid);
     } else {
     
-        if (category === 'bird') {
+        if (category.toLowerCase() === 'bird') {
+            
             errorImage.src = 'images/error.webp'; 
             errorImage.classList.remove('hidden'); 
         } else {
@@ -141,28 +143,34 @@ async function fetchPets() {
         );
 
 
+        const petBreed = pet.breed || 'Not Available';
+        const petDOB = pet.date_of_birth || 'Not Available';
+        const petGender = pet.gender || 'Not Available';
+        const petPrice = pet.price || 'Not Available';
+
         // Set inner HTML for the pet card
         petCard.innerHTML = `
-              <div>
-                <img src="${pet.image}" alt="${pet.name}" class="w-full h-48 object-cover shadow-md mb-4">
+            <div>
+               <img src="${pet.image}" alt="${pet.name}" class="w-full h-48 object-cover shadow-md mb-4">
                 <h2 class="text-2xl font-bold">${pet.breed}</h2>
-                <p><i class="fa-brands fa-elementor"></i> Breed: ${pet.breed}</p>
-                <p><i class="fa-solid fa-calendar-days"></i> Date of Birth: ${pet.date_of_birth}</p>
-                <p><i class="fa-solid fa-venus"></i> Gender: ${pet.gender}</p>
-                <p><i class="fa-solid fa-dollar-sign"></i> Price: ${pet.price}</p>
+                <p><i class="fa-brands fa-elementor"></i> Breed: ${petBreed}</p>
+                <p><i class="fa-solid fa-calendar-days"></i> Date of Birth: ${petDOB}</p>
+                <p><i class="fa-solid fa-venus"></i> Gender: ${petGender}</p>
+                <p><i class="fa-solid fa-dollar-sign"></i> Price: ${petPrice}</p>
                 <div class="flex space-x-2 mt-2">
-                    <button class="like-btn py-1 px-3 rounded shadow-md" data-pet-id="${pet.id}">
+                    <button class="like-btn py-1 px-3 sm:py-2 sm:px-4 lg:py-3 
+                    lg:px-6 text-sm sm:text-base lg:text-lg  rounded shadow-md" data-pet-id="${pet.id}">
                         <i class="fa-regular fa-thumbs-up"></i> Like
                     </button>
                     <button class="adopt-btn text-[#0E7A81] py-1 px-3 rounded shadow-md">Adopt</button>
                     <button class="details-btn text-[#0E7A81] py-1 px-3 rounded shadow-md">Details</button>
                 </div>
             </div>
-            
         `;
      
         petsGrid.appendChild(petCard);
 
+       
         const likeButton = petCard.querySelector('.like-btn');
         
         likeButton.addEventListener('click', (e) => {
@@ -171,14 +179,11 @@ async function fetchPets() {
                 likedPets.push(pet.id);
 
                 const likedPetCard = document.createElement('div');
-                likedPetCard.classList.add('bg-white', 'shadow-md', 'p-4', 'rounded-lg', 'w-[100%]', 'h-auto');
+                likedPetCard.classList.add( 'p-2');
+                
                 likedPetCard.innerHTML = `
-                    <img src="${pet.image}" alt="${pet.name}" class="w-[50%]
-                     h-[70%] object-cover rounded mb-2">
-                    <h3 class="text-xl font-bold">${pet.name}</h3>
-                    <p class="text-sm">${pet.breed}</p>
-                      <p class="text-sm">${pet.category}</p>
-                      <p class="text-sm">${pet.price}</p>
+                  <img src="${pet.image}" alt="" class="w-full
+                     h-40 object-cover rounded ">     
 
                 `;
 
@@ -186,18 +191,61 @@ async function fetchPets() {
                 likedImagesContainer.appendChild(likedPetCard);
 
                 likedPetsContainer.classList.remove('hidden');
+
+              
+              
+            }
+
+           else {
+        likedPets.splice(likedPets.indexOf(pet.id), 1);
+
+        const likedPetCards = likedImagesContainer.querySelectorAll('div');
+        likedPetCards.forEach(card => {
+            if (card.querySelector('img').src === pet.image) {
+                likedImagesContainer.removeChild(card);
             }
         });
-    const detailsButton = petCard.querySelector('.details-btn');
-    detailsButton.addEventListener('click', () => {
+
+        if (likedPets.length === 0) {
+            likedPetsContainer.classList.add('hidden');
+        }
+      
+    }
+  
+        });
+        
+        const detailsButton = petCard.querySelector('.details-btn');
+          detailsButton.addEventListener('click', () => {
         openModal(pet); 
     });
+
+    const adoptButton = petCard.querySelector('.adopt-btn');
+        adoptButton.addEventListener('click', () => {
+            openCongratsModal(); 
+        });
 
     });
 
     petsContainer.appendChild(petsGrid); 
     
-
+    function openCongratsModal() {
+        const congratsModal = document.getElementById('congrats-modal');
+        const countdownElement = document.getElementById('countdown');
+        
+        let countdown = 3;
+        countdownElement.textContent = countdown; 
+        congratsModal.classList.remove('hidden'); 
+    
+        const countdownInterval = setInterval(() => {
+            countdown -= 1;
+            countdownElement.textContent = countdown;
+    
+            if (countdown === 0) {
+                clearInterval(countdownInterval);
+                congratsModal.classList.add('hidden');
+            }
+        }, 1000); 
+    }
 
 function openModal(pet) {
     document.getElementById('modal-pet-name').textContent = pet.name;
@@ -206,6 +254,12 @@ function openModal(pet) {
     document.getElementById('modal-date-of-birth').textContent = `Date of Birth: ${pet.date_of_birth}`;
     document.getElementById('modal-gender').textContent = `Gender: ${pet.gender}`;
     document.getElementById('modal-price').textContent = `Price: ${pet.price}`;
+
+    document.getElementById('modal-pet_details').textContent = `Details: ${pet.pet_details}`;
+
+    // Populate additional info
+    document.getElementById('modal-description').textContent = `Description: ${pet.pet_details}`;
+    document.getElementById('modal-vaccination').textContent = `Vaccination: ${pet.vaccinated_status}`;
 
     document.getElementById('pet-modal').classList.remove('hidden');
 }
